@@ -1,0 +1,15 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+
+# Roblox Studio locks
+*.rbxl.lock
+*.rbxm.lock
