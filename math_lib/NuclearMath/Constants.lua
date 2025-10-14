@@ -1,4 +1,5 @@
--- Copyright 2025 Terranova Incorporated
+-- Module: Constants
+-- Description: Defines core functionality for NuclearMath (Constants component)-- Copyright 2025 Terranova Incorporated
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
 -- You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -36,4 +37,5 @@ Constants.PumpInertia = 12.5 -- kg*m^2 hypothetical
 Constants.PumpDamping = 3.25 -- N*m*s
 
 return Constants
+
 
