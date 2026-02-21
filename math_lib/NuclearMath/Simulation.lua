@@ -43,7 +43,11 @@ local function sanitizeParams(rawParams)
 		local loopDefaults = ThermalHydraulics.defaultLoop()
 		params.loop = {}
 		for key, value in pairs(loopDefaults) do
-			params.loop[key] = rawParams.loop[key] or value
+			if rawParams.loop[key] ~= nil then
+				params.loop[key] = rawParams.loop[key]
+			else
+				params.loop[key] = value
+			end
 		end
 	end
 
@@ -51,7 +55,11 @@ local function sanitizeParams(rawParams)
 		local rodDefaults = ThermalStructures.defaultFuelRod()
 		params.fuelRod = {}
 		for key, value in pairs(rodDefaults) do
-			params.fuelRod[key] = rawParams.fuelRod[key] or value
+			if rawParams.fuelRod[key] ~= nil then
+				params.fuelRod[key] = rawParams.fuelRod[key]
+			else
+				params.fuelRod[key] = value
+			end
 		end
 	end
 
