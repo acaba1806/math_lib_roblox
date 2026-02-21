@@ -105,6 +105,9 @@ function Utils.rungeKutta4(state, dt, derivativeFn)
 end
 
 function Utils.clamp(value, minValue, maxValue)
+	if not isFiniteNumber(value) then
+		return minValue
+	end
 	if value < minValue then
 		return minValue
 	elseif value > maxValue then
@@ -114,6 +117,9 @@ function Utils.clamp(value, minValue, maxValue)
 end
 
 function Utils.deepCopy(tbl)
+	if type(tbl) ~= "table" then
+		return tbl
+	end
 	local copy = {}
 	for key, value in pairs(tbl) do
 		if type(value) == "table" then

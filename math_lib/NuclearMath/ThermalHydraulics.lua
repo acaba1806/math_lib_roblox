@@ -41,6 +41,9 @@ function ThermalHydraulics.logMeanTempDiff(T_hot_in, T_hot_out, T_cold_in, T_col
 	if math.abs(delta1 - delta2) < 1e-6 then
 		return delta1
 	end
+	if delta1 <= 0 or delta2 <= 0 then
+		return math.max(delta1, delta2)
+	end
 	return (delta1 - delta2) / math.log(delta1 / delta2)
 end
 
@@ -88,7 +91,7 @@ function ThermalHydraulics.pumpTorque(speed, loop)
 	local head = Utils.coerceNumber(loop.pumpHead, ThermalHydraulics.defaultLoop().pumpHead) * relativeSpeed ^ 2
 	local flow = Utils.coerceNumber(loop.massFlowRate, ThermalHydraulics.defaultLoop().massFlowRate) * relativeSpeed
 	local hydraulicPower = head * flow / math.max(Constants.WaterDensity, 1.0)
-	local omega = speed * 2 * math.pi / 60
+	local omega = speedSafe * 2 * math.pi / 60
 	return hydraulicPower / math.max(omega, 1e-3)
 end
 
