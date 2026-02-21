@@ -42,7 +42,7 @@ function ThermalHydraulics.logMeanTempDiff(T_hot_in, T_hot_out, T_cold_in, T_col
 		return delta1
 	end
 	if delta1 <= 0 or delta2 <= 0 then
-		return math.max(delta1, delta2)
+		return math.max(delta1, delta2, 0)
 	end
 	return (delta1 - delta2) / math.log(delta1 / delta2)
 end
